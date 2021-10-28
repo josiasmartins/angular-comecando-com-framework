@@ -5,7 +5,9 @@
     <th class="tabela__cabecalho__conteudo">Valor</th>
     <th class="tabela__cabecalho__conteudo">Destino</th>
   </thead>
-  <tbody>
+  <!-- ngIF: é uma diretiva. Se tem algum conteúdo de transferencia -->
+  <!-- se o !!transferencia for exibido, se não ele exibe a lista vazia, que esta em baixo -->
+  <tbody *ngIf="transferencias?.length > 0; else listVazia">
     <tr class="tabela__linha" *ngFor="let transferencia of transferencias">
       <!-- DatePipe: usado para formatar a data -->
       <td class="tabela__conteudo">{{transferencia.data | date: "short"}}</td>
@@ -15,6 +17,10 @@
     </tr>
   </tbody>
 </table>
+<!-- vai substituir o conteúdo que vai dentro do tbody -->
+<ng-template #listVazia>
+  <p>Nenhuma operação cadastrada</p>
+</ng-template>
 
 
 

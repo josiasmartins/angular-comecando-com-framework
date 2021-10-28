@@ -1,3 +1,4 @@
+import { TransferenciaService } from './services/transferencia.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -9,18 +10,17 @@ export class AppComponent {
   title = 'bytebank';
   destino: number;
   valor: number;
-  transferencias: any[] = [];
+  // não utiliza mais
+  // transferencias: any[] = [];
+
+  constructor(private service: TransferenciaService) {}
 
   // vai passar ele como parametro, então preciso passar ele como parâmetro
   transferir($event): void {
     console.log($event);
     // this.destino = $event.destino;
     // this.valor = $event.valor;
-    // pre operarion
-    // está descontruindo esse objeto/evento. Se estar chegando duas propriedades
-    const transferencia = {...$event, data: new Date()}
-    // refatorando o código
-    this.transferencias.push(transferencia);
+    this.service.adicionar($event)
   }
 
 
