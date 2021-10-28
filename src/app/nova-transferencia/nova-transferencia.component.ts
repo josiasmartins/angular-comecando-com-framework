@@ -2,6 +2,7 @@ import { Transferencia } from './../models/transferencia.model';
 import { TransferenciaService } from './../services/transferencia.service';
 import { EventEmitter } from '@angular/core';
 import { Component, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nova-transferencia',
@@ -14,7 +15,10 @@ export class NovaTransferenciaComponent {
   // através desse eventEmitter eu consigo propagar esse dado
   @Output() aoTransferir = new EventEmitter<any>();
 
-  constructor(private service: TransferenciaService) {}
+  constructor(
+    private service: TransferenciaService,
+    private router: Router
+    ) {}
 
   valor: number;
   destino: number;
@@ -31,6 +35,11 @@ export class NovaTransferenciaComponent {
       resultado => {
         console.log(resultado);
         this.limparCampos();
+        // Duas formas de navegar com router: navigate() e navigateUrl()
+        // com o Router, tem acesso ao método navigate(). Pede um array de comandos
+        // navigateUrl: só precisa do path em string
+        // this.router.navigate(['extrato'])
+        this.router.navigateByUrl('extrato')
     },
     // utilizado a segunda função do método subscribe. Ele mostra o erro
     (error) => console.error(error)
