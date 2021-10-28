@@ -7,6 +7,7 @@ import { NovaTransferenciaComponent } from './nova-transferencia/nova-transferen
 import { ExtratoComponent } from './extrato/extrato.component';
 import { registerLocaleData } from '@angular/common';
 import localetPt from '@angular/common/locales/pt';
+import { HttpClientModule } from '@angular/common/http';
 
 // ela precisa de 3 parâmetro: o local que preciso importar e qual a chave
 registerLocaleData(localetPt, 'pt');
@@ -18,7 +19,8 @@ registerLocaleData(localetPt, 'pt');
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     // tambem preciso dizer de onde vem isso
