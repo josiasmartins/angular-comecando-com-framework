@@ -2,6 +2,6 @@
 export interface Transferencia {
   id?: number | string;
   valor:  number;
-  destino: string;
+  destino: string | number;
   data?: string;
 }

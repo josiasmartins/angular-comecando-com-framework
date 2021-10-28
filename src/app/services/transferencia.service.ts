@@ -31,12 +31,17 @@ export class TransferenciaService {
    }
 
    // vou receber uma transferencia como parâmetro
-   adicionar(transferencia: any): void {
+   adicionar(transferencia: Transferencia): Observable<Transferencia> {
     // pre operarion
     // está descontruindo esse objeto/evento. Se estar chegando duas propriedades
     // refatorando o código
     this.hidratar(transferencia)
-    this.listaTransferencia.push(transferencia);
+    // this.listaTransferencia.push(transferencia);
+
+    // agora vai invocar o objeto httpClient
+    // vai chamar uma requisição post
+    // o método post recebe dois parametro: a url e o parametro do seu método
+    return this.httpClient.post<Transferencia>(this.url, transferencia)
    };
 
    private hidratar(transferencia: any): void {
