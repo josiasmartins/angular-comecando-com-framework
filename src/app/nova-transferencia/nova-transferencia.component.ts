@@ -18,7 +18,7 @@ export class NovaTransferenciaComponent {
   constructor(
     private service: TransferenciaService,
     private router: Router
-    ) {}
+  ) {}
 
   valor: number;
   destino: number;

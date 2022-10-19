@@ -16,12 +16,12 @@ export class AppComponent {
   constructor(private service: TransferenciaService) {}
 
   // vai passar ele como parametro, então preciso passar ele como parâmetro
-  transferir($event): void {
-    console.log($event);
-    // this.destino = $event.destino;
-    // this.valor = $event.valor;
-    this.service.adicionar($event)
-  }
+  // transferir($event): void {
+  //   console.log($event);
+  //   // this.destino = $event.destino;
+  //   // this.valor = $event.valor;
+  //   this.service.adicionar($event)
+  // }
 
 
 }

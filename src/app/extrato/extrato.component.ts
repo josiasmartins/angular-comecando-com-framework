@@ -24,7 +24,7 @@ export class ExtratoComponent implements OnInit {
       console.table(transferencias);
       // a transferencia do component vai receber o do parametro
       this.transferencias = transferencias
-    })
+    });
   }
 
 }

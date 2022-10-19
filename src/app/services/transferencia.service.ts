@@ -10,7 +10,12 @@ import { Observable } from 'rxjs';
 })
 export class TransferenciaService {
   private listaTransferencia: any[];
-  private url = 'http://localhost:3000/transferencias'
+  // endpoint do json-server
+  // private url = 'http://localhost:3000/transferencias'
+  // com proxi
+  // private url = 'api/transferencia';
+  // sem proxi
+  private url = 'http://localhost:8080/api/transferencia';
 
   // HttpClient: ela prove métodos que faz a requisição para uma api rast. Requisição get, push, delete
   constructor(private httpClient: HttpClient) {
@@ -35,7 +40,7 @@ export class TransferenciaService {
     // pre operarion
     // está descontruindo esse objeto/evento. Se estar chegando duas propriedades
     // refatorando o código
-    this.hidratar(transferencia)
+    this.hidratar(transferencia);
     // this.listaTransferencia.push(transferencia);
 
     // agora vai invocar o objeto httpClient
@@ -44,7 +49,7 @@ export class TransferenciaService {
     return this.httpClient.post<Transferencia>(this.url, transferencia)
    };
 
-   private hidratar(transferencia: any): void {
+   private hidratar(transferencia: Transferencia): void {
     transferencia.data = new Date();
    }
 }
